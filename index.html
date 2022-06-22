@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Baseball Stats</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<head>
+  <title>MLB Stats Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="topnav">
+    <a href="https://www.mlb.com/" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Major_League_Baseball_logo.svg/1200px-Major_League_Baseball_logo.svg.png" alt="MLB logo" id="mlb-logo"></a>
+    <a href="https://www.mlb.com/scores" target="_blank">Scores</a>
+    <a href="https://www.mlb.com/standings" target="_blank">Standings</a>   
+  </div>
+  <br>
+  
+<!-- buttons for team selection -->
+<div class="btn-group">
+  <button id="angels-button" onclick="showAngels()">Angels</button>
+  <button id="dodgers-button" onclick="showDodgers()">Dodgers</button>
+</div> 
+  <hr>
+
+<!--team logos placed side by side--> 
+<div class="team-rows">
+  <img src="https://i.bleacherreport.net/images/team_logos/328x328/los_angeles_angels.png?canvas=492,328" alt="Angels logo" id="angels-logo">
+
+  <img src="https://njmarlins.com/wp-content/uploads/sites/692/2015/04/la-dodgers-logo-300x300.png" alt="Dodgers logo" id="dodgers-logo" class="closed">
+</div>
+  
+  <h2>Hitting</h2>
+  
+<!--first set of stats tables placed side by side-->  
+  <div class="team-rows">
+    <table id="angels-batters">
+        <tr>
+          <th>Player</th>
+          <th class="tooltip">GP <span class="tooltiptext">Games Played:<br> Games in which a player has appeared.</span></th>
+          <th class="tooltip">AB <span class="tooltiptext">At-Bats:<br> Trips to the plate that do not result in a walk, hit by pitch, sacrifice, or reach on interference.</span></th>
+          <th class="tooltip">HR <span class="tooltiptext">Home Runs:<br> When a batter reaches on a hit, touches all bases, and scores a run without a putout recorded or the benefit of an error.</span></th>
+          <th class="tooltip">RBI <span class="tooltiptext">Runs Batted In:<br> Runs that score because of the batter's safe hit, sac bunt, sac fly, infield out, or fielder's choice or is forced to score by a bases loaded walk, hit batter, or interference.</span></th>
+          <th class="tooltip">AVG <span class="tooltiptext">Batting Average:<br> The rate of hits per at bat.<br> H/AB</span></th>
+          <th class="tooltip">OBP <span class="tooltiptext">On-Base Percentage:<br> The rate at which a batter reached base in their plate appearances. <br> (H+BB+HBP)/(AB+BB+HBP+SF)</span></th>
+          <th class="tooltip">SLG <span class="tooltiptext">Slugging Percentage:<br> The rate of total bases per at bat. <br> (1B+2Bx2+3Bx3+HRx4)/AB</span></th>
+          <th class="tooltip">OPS <span class="tooltiptext">On-Base Plus Slugging:<br> The sum of on-base percentage and slugging percentage.<br> OBP+SLG</span></th>
+        </tr>
+        <tr> 
+          <td>Mike Trout</td> 
+          <td>51</td>
+          <td>181</td>
+          <td>13</td> 
+          <td>28</td> 
+          <td>.276</td>
+          <td>.382</td>
+          <td>.575</td>
+          <td id="trout"></td>
+        </tr>
+        <tr> 
+          <td>Shohei Ohtani</td> 
+          <td>55</td>
+          <td>211</td>
+          <td>11</td> 
+          <td>32</td> 
+          <td>.242</td> 
+          <td>.322</td>
+          <td>.445</td>
+          <td id="ohtani"></td>
+        </tr>
+        <tr> 
+          <td>Taylor Ward</td> 
+          <td>38</td>
+          <td>132</td>
+          <td>10</td> 
+          <td>26</td> 
+          <td>.333</td> 
+          <td>.443</td>
+          <td>.644</td>
+          <td id="ward"></td>
+        </tr>
+    </table>
+
+    <table id="dodgers-batters" class="closed">
+      <tr>
+        <th>Player</th>
+        <th class="tooltip">GP <span class="tooltiptext">Games Played:<br> Games in which a player has appeared.</span></th>
+        <th class="tooltip">AB <span class="tooltiptext">At-Bats:<br> Trips to the plate that do not result in a walk, hit by pitch, sacrifice, or reach on interference.</span></th>
+          <th class="tooltip">HR <span class="tooltiptext">Home Runs:<br> When a batter reaches on a hit, touches all bases, and scores a run without a putout recorded or the benefit of an error.</span></th>
+          <th class="tooltip">RBI <span class="tooltiptext">Runs Batted In:<br> Runs that score because of the batter's safe hit, sac bunt, sac fly, infield out, or fielder's choice or is forced to score by a bases loaded walk, hit batter, or interference.</span></th>
+          <th class="tooltip">AVG <span class="tooltiptext">Batting Average:<br> The rate of hits per at bat.<br> H/AB</span></th>
+          <th class="tooltip">OBP <span class="tooltiptext">On-Base Percentage:<br> The rate at which a batter reached base in their plate appearances. <br> (H+BB+HBP)/(AB+BB+HBP+SF)</span></th>
+          <th class="tooltip">SLG <span class="tooltiptext">Slugging Percentage:<br> The rate of total bases per at bat. <br> (1B+2Bx2+3Bx3+HRx4)/AB</span></th>
+           <th class="tooltip">OPS <span class="tooltiptext">On-Base Plus Slugging:<br> The sum of on-base percentage and slugging percentage.<br> OBP+SLG</span></th>
+      </tr>
+      <tr> 
+        <td>Mookie Betts</td> 
+        <td>52</td>
+        <td>211</td>
+        <td>16</td> 
+        <td>39</td> 
+        <td>.303</td>
+        <td>.383</td>
+        <td>.592</td>
+        <td id="betts"></td>
+      </tr>
+      <tr> 
+        <td>Freddie Freeman</td> 
+        <td>54</td>
+        <td>211</td>
+        <td>4</td> 
+        <td>30</td> 
+        <td>.294</td> 
+        <td>.379</td>
+        <td>.456</td>
+        <td id="freeman"></td>
+      </tr>
+      <tr> 
+         <td>Cody Bellinger</td> 
+         <td>49</td>
+         <td>180</td>
+         <td>6</td> 
+         <td>21</td> 
+         <td>.211</td> 
+         <td>.279</td>
+         <td>.400</td>
+         <td id="bellinger"></td>
+      </tr>
+    </table>
+  </div>
+  
+  <br>
+  <h2>Pitching</h2>
+  
+  <div class="team-rows">
+    <table id="angels-pitchers">
+      <tr>
+        <th>Player</th>
+           <th class="tooltip">W <span class="tooltiptext">Wins:<br> Credited to the pitcher whose team assumes a lead while such pitcher is in the game and does not relinquish such lead unless otherwise assigned by the official scorer.</span></th>
+           <th class="tooltip">L <span class="tooltiptext">Losses:<br> Credited to the pitcher in the game when their team relinquishes - and never regains - the lead.</span></th>
+           <th class="tooltip">GP <span class="tooltiptext">Games Pitched:<br> Games in which the pitcher threw at least one pitch.</span></th>
+           <th class="tooltip">IP<span class="tooltiptext">Innings Pitched:<br> Number of putouts recorded while the pitcher was on the mound, divided by 3, with .1 representing 1/3 of an inning and .2 representing 2/3.</span></th>
+           <th class="tooltip">ERA <span class="tooltiptext">Earned Run Average:<br> The average number of earned runs a pitcher allows per 9 innings.<br> (ERx9)/IP</span></th>
+           <th class="tooltip">WHIP <span class="tooltiptext">Walks and Hits Per Inning Pitched:<br> The ratio of walks plus hits to innings pitched.<br> (W+H)/IP</span></th>
+           <th class="tooltip">SO/9 <span class="tooltiptext">Strikeouts Per 9 IP:<br> A pitcher's strikeout rate per 9 innings.<br> 9xSO/IP</span></th>
+           <th class="tooltip">BB/9 <span class="tooltiptext">Walks Per 9 IP:<br> A pitcher's walk rate per 9 innings.<br> 9xBB/IP</span></th>
+      </tr>
+      <tr> 
+        <td>Shohei Ohtani</td> 
+        <td>4</td>
+        <td>4</td>
+        <td>10</td> 
+        <td>54.1</td> 
+        <td>3.64</td>
+        <td>1.12</td>
+        <td>11.76</td>
+        <td>2.15</td>
+      </tr>
+      <tr> 
+        <td>Noah Syndergaard</td> 
+        <td>4</td>
+        <td>5</td>
+        <td>10</td> 
+        <td>51.0</td> 
+        <td>3.53</td> 
+        <td>1.18</td>
+        <td>6.18</td>
+        <td>2.29</td>
+      </tr>
+      <tr> 
+        <td>Reid Detmers</td> 
+        <td>2</td>
+        <td>2</td>
+        <td>10</td> 
+        <td>49.1</td> 
+        <td>3.83</td> 
+        <td>1.01</td>
+        <td>5.84</td>
+        <td>2.92</td>
+      </tr>
+    </table>
+
+    <table id="dodgers-pitchers" class="closed">
+      <tr>
+        <th>Player</th>
+          <th class="tooltip">W <span class="tooltiptext">Wins:<br> Credited to the pitcher whose team assumes a lead while such pitcher is in the game and does not relinquish such lead unless otherwise assigned by the official scorer.</span></th>
+           <th class="tooltip">L <span class="tooltiptext">Losses:<br> Credited to the pitcher in the game when their team relinquishes - and never regains - the lead.</span></th>
+           <th class="tooltip">GP <span class="tooltiptext">Games Pitched:<br> Games in which the pitcher threw at least one pitch.</span></th>
+           <th class="tooltip">IP<span class="tooltiptext">Innings Pitched:<br> Number of putouts recorded while the pitcher was on the mound, divided by 3, with .1 representing 1/3 of an inning and .2 representing 2/3.</span></th>
+           <th class="tooltip">ERA <span class="tooltiptext">Earned Run Average:<br> The average number of earned runs a pitcher allows per 9 innings.<br> (ERx9)/IP</span></th>
+           <th class="tooltip">WHIP <span class="tooltiptext">Walks and Hits Per Inning Pitched:<br> The ratio of walks plus hits to innings pitched.<br> (W+H)/IP</span></th>
+           <th class="tooltip">SO/9 <span class="tooltiptext">Strikeouts Per 9 IP:<br> A pitcher's strikeout rate per 9 innings.<br> 9xSO/IP</span></th>
+           <th class="tooltip">BB/9 <span class="tooltiptext">Walks Per 9 IP:<br> A pitcher's walk rate per 9 innings.<br> 9xBB/IP</span></th>
+      </tr>
+      <tr> 
+        <td>Clayton Kershaw</td> 
+        <td>4</td>
+        <td>1</td>
+        <td>6</td> 
+        <td>34.0</td> 
+        <td>2.12</td>
+        <td>0.79</td>
+        <td>9.53</td>
+        <td>1.32</td>
+      </tr>
+      <tr> 
+        <td>Julio Urias</td> 
+        <td>3</td>
+        <td>6</td>
+        <td>12</td> 
+        <td>64.1</td> 
+        <td>2.80</td> 
+        <td>1.06</td>
+        <td>7.83</td>
+        <td>2.10</td>
+      </tr>
+      <tr> 
+        <td>Tony Gonsolin</td> 
+        <td>8</td>
+        <td>0</td>
+        <td>12</td> 
+        <td>63.1</td> 
+        <td>1.42</td> 
+        <td>0.82</td>
+        <td>8.53</td>
+        <td>2.84</td>
+      </tr>
+    </table>
+  </div>
+  
+  
+  
+</body>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
