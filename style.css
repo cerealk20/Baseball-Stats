@@ -1,26 +1,9 @@
-body {
+body { 
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
 }
 h2{
   text-align:center;
-}
-
-
-.btn-group{
-  text-align:center;  
-}
-#angels-button{
-  background-color:red;
-  color: white;
-  font-size:120%;
-  cursor:pointer;
-}
-#dodgers-button{
-  background-color:blue;
-  color: white;
-  font-size:120%;
-  cursor:pointer;
 }
 
 
@@ -37,7 +20,7 @@ h2{
   padding:5px 15px 5px 5px;
   font-size:18px;
 }
-a~a:hover{
+.topnav a~a:hover{
   text-decoration:underline;
 }
 #mlb-logo{
@@ -58,6 +41,64 @@ a~a:hover{
   height:150px;
   margin-right:10%;
   image-fit:cover;
+}
+
+
+.btn-group{
+  text-align:center;  
+}
+#angels-button{
+  background-color:red;
+  color: white;
+  font-size:120%;
+  cursor:pointer;
+}
+#angels-button:hover{
+  background-color:#cc0000;
+}
+#dodgers-button{
+  background-color:blue;
+  color: white;
+  font-size:120%;
+  cursor:pointer;
+}
+#dodgers-button:hover{
+  background-color:#0000cc;
+}
+.filter-button{
+  font-size:100%;
+  cursor:pointer;
+}
+.filter-button:hover{
+  background-color:#d8d8d8;
+}
+.dropdown{
+  left:50%;
+  transform:translateX(-50%);
+  position:relative;
+  display:inline-block;
+  
+}
+.drop-content{
+  display:none;
+  position: absolute;
+  width: 100%;
+  overflow:auto;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.drop-content a{
+  color: black;
+  padding: 12px 16px;
+  display:block;
+  text-decoration:none;
+}
+.drop-content a:hover{
+  background-color:#d8d8d8;
+}
+.show{
+  display:block;
 }
 
 
@@ -111,7 +152,7 @@ tr:hover {background-color:aqua;}
   visibility:hidden;
 }
 .open{
-  visibility:"";
+  visibility:"";    
 }
 
 

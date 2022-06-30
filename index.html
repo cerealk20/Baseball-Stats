@@ -8,26 +8,37 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<head>
+<head> 
   <title>MLB Stats Page</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
+  
+<!-- Top banner with 3 different external links--> 
   <div class="topnav">
     <a href="https://www.mlb.com/" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Major_League_Baseball_logo.svg/1200px-Major_League_Baseball_logo.svg.png" alt="MLB logo" id="mlb-logo"></a>
     <a href="https://www.mlb.com/scores" target="_blank">Scores</a>
-    <a href="https://www.mlb.com/standings" target="_blank">Standings</a>   
+    <a href="https://www.mlb.com/standings" target="_blank">Standings</a> 
   </div>
   <br>
   
 <!-- buttons for team selection -->
 <div class="btn-group">
   <button id="angels-button" onclick="showAngels()">Angels</button>
-  <button id="dodgers-button" onclick="showDodgers()">Dodgers</button>
+  <button id="dodgers-button" onclick="showDodgers()">Dodgers</button>   
 </div> 
-  <hr>
+<br> 
+  
+<div class="dropdown">
+  <button class="filter-button" onclick="dropFilters()">By Position<span>&dtrif;</span></button>
+  <div id="drop-menu" class="drop-content">
+    <a href="#show-batters" onclick="showBatters()">Hitters</a>
+    <a href="#show-pitchers" onclick="showPitchers()">Pitchers</a>
+  </div>
+</div> 
+<hr>
 
 <!--team logos placed side by side--> 
 <div class="team-rows">
@@ -54,35 +65,35 @@
         </tr>
         <tr> 
           <td>Mike Trout</td> 
-          <td>51</td>
-          <td>181</td>
-          <td>13</td> 
-          <td>28</td> 
-          <td>.276</td>
-          <td>.382</td>
-          <td>.575</td>
+          <td>69</td>
+          <td>246</td>
+          <td>23</td> 
+          <td>47</td> 
+          <td>.285</td>
+          <td>.387</td>
+          <td>.650</td>
           <td id="trout"></td>
         </tr>
         <tr> 
           <td>Shohei Ohtani</td> 
-          <td>55</td>
-          <td>211</td>
-          <td>11</td> 
-          <td>32</td> 
-          <td>.242</td> 
-          <td>.322</td>
-          <td>.445</td>
+          <td>75</td>
+          <td>283</td>
+          <td>17</td> 
+          <td>49</td> 
+          <td>.265</td> 
+          <td>.350</td>
+          <td>.505</td>
           <td id="ohtani"></td>
         </tr>
         <tr> 
           <td>Taylor Ward</td> 
-          <td>38</td>
-          <td>132</td>
-          <td>10</td> 
-          <td>26</td> 
-          <td>.333</td> 
-          <td>.443</td>
-          <td>.644</td>
+          <td>54</td>
+          <td>199</td>
+          <td>11</td> 
+          <td>31</td> 
+          <td>.312</td> 
+          <td>.399</td>
+          <td>.548</td>
           <td id="ward"></td>
         </tr>
     </table>
@@ -100,7 +111,7 @@
            <th class="tooltip">OPS <span class="tooltiptext">On-Base Plus Slugging:<br> The sum of on-base percentage and slugging percentage.<br> OBP+SLG</span></th>
       </tr>
       <tr> 
-        <td>Mookie Betts</td> 
+        <td>**Mookie Betts</td> 
         <td>52</td>
         <td>211</td>
         <td>16</td> 
@@ -153,36 +164,36 @@
       </tr>
       <tr> 
         <td>Shohei Ohtani</td> 
+        <td>7</td>
         <td>4</td>
-        <td>4</td>
-        <td>10</td> 
-        <td>54.1</td> 
-        <td>3.64</td>
-        <td>1.12</td>
-        <td>11.76</td>
-        <td>2.15</td>
+        <td>13</td> 
+        <td>74.0</td> 
+        <td>2.68</td>
+        <td>1.01</td>
+        <td>12.28</td>
+        <td>2.07</td>
       </tr>
       <tr> 
         <td>Noah Syndergaard</td> 
-        <td>4</td>
         <td>5</td>
-        <td>10</td> 
-        <td>51.0</td> 
-        <td>3.53</td> 
+        <td>6</td>
+        <td>12</td> 
+        <td>65.1</td> 
+        <td>3.86</td> 
         <td>1.18</td>
-        <td>6.18</td>
-        <td>2.29</td>
+        <td>6.47</td>
+        <td>2.20</td>
       </tr>
       <tr> 
-        <td>Reid Detmers</td> 
+        <td>*Reid Detmers</td> 
         <td>2</td>
-        <td>2</td>
-        <td>10</td> 
-        <td>49.1</td> 
-        <td>3.83</td> 
-        <td>1.01</td>
-        <td>5.84</td>
-        <td>2.92</td>
+        <td>3</td>
+        <td>12</td> 
+        <td>58.0</td> 
+        <td>4.66</td> 
+        <td>1.10</td>
+        <td>6.83</td>
+        <td>3.26</td>
       </tr>
     </table>
 
@@ -200,43 +211,46 @@
       </tr>
       <tr> 
         <td>Clayton Kershaw</td> 
-        <td>4</td>
-        <td>1</td>
-        <td>6</td> 
-        <td>34.0</td> 
-        <td>2.12</td>
-        <td>0.79</td>
-        <td>9.53</td>
-        <td>1.32</td>
+        <td>5</td>
+        <td>2</td>
+        <td>9</td> 
+        <td>49.0</td> 
+        <td>2.94</td>
+        <td>1.10</td>
+        <td>9.37</td>
+        <td>2.02</td>
       </tr>
       <tr> 
         <td>Julio Urias</td> 
-        <td>3</td>
         <td>6</td>
-        <td>12</td> 
-        <td>64.1</td> 
-        <td>2.80</td> 
-        <td>1.06</td>
-        <td>7.83</td>
-        <td>2.10</td>
+        <td>6</td>
+        <td>15</td> 
+        <td>81.2</td> 
+        <td>2.64</td> 
+        <td>1.03</td>
+        <td>8.38</td>
+        <td>2.20</td>
       </tr>
       <tr> 
         <td>Tony Gonsolin</td> 
-        <td>8</td>
+        <td>9</td>
         <td>0</td>
-        <td>12</td> 
-        <td>63.1</td> 
-        <td>1.42</td> 
-        <td>0.82</td>
-        <td>8.53</td>
-        <td>2.84</td>
+        <td>14</td> 
+        <td>74.0</td> 
+        <td>1.58</td> 
+        <td>0.85</td>
+        <td>8.39</td>
+        <td>2.80</td>
       </tr>
     </table>
   </div>
   
   <br>
-  <p>*Stats current as of 6/7/2022 9:15pm</p>
-  
+  <p> Stats current as of 7/1/2022 9:30am<br>
+    *Optioned to Triple-A<br>
+    **On the IL (Injured List)<br>
+    
+  </p>
   
   
 </body>
