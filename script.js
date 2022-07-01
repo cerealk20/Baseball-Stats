@@ -87,8 +87,8 @@ window.onclick = function(event) {
 
 //Stats current as of 7/1 9:30am
 
-const OBP=[.387, .350, .399, .383, .379, .279];
-const SLG=[.650, .505, .548, .592, .456, .400];
+const OBP=[.387, .350, .399, .349, .386, .270];
+const SLG=[.650, .505, .548, .535, .490, .391];
 let OPS=[]
 
 for(let i=0; i<OBP.length; i++){
